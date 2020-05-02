@@ -1,0 +1,6 @@
+aria2p
+tgcrypto
+flask
+gunicorn
+subprocess.run
+requests

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Temporary Drive /</h1>
+<hr>
+Path : /files|{{ arg }}
+<hr>
+  {% for item in list1 %}
+  <ul style="list-style-type:circle;">
+      <li><a href="/drive/{{arg}}{{item}}">{{ item }}</a></li>
+      </ul>
+  {% endfor %}
+  {% for item in list2 %}
+  <ul style="list-style-type:disc;">
+      <li><a href="/static/files/{{arg1}}{{item}}">{{ item }}</a></li>
+      </ul>
+  {% endfor %}
+
+<hr>
+
+</body>
+</html>

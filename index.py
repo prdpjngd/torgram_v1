@@ -33,35 +33,32 @@ def run():
     subprocess.Popen(aria2_daemon_start_cmd)
     subprocess.call
 
-    #downloads = aria2.get_downloads()
-    #list1=[]
-    #for download in downloads:
-        #list1.append(download.name)
-        #list1.append(download.download_speed)
-        #list1.append("<br>")
-    return 'TRUE'
+    return redirect(url_for('home'))
 
 @app.route('/',methods = ['GET'])
 def home():
-    downloads = aria2.get_downloads()
-    opt=[]
-    for download in downloads:
-        tmp=[]
-        tmp.append(str(download.name))
-        tmp.append(str(download.download_speed_string()))
-        tmp.append(str(download.total_length_string()))
-        tmp.append(str(download.connections))
-        tmp.append(str(download.progress_string()))
-        if str(download.status)=='active':
-            tmp.append('bg-success progress-bar-striped progress-bar-animated')
-        elif str(download.status)=='complete':
-            tmp.append('progress-bar-info')
-        else:
-            tmp.append('bg-danger progress-bar-striped')
-        tmp.append(str(download.eta_string()))
-        tmp.append(str(download.gid))
-        opt.append(tmp)
-    return render_template('index.html',opt=opt)
+    if 'aria2c' in str(subprocess.Popen(['ps -ax'],shell=True,stdout=subprocess.PIPE).stdout.read()).replace('\n','<br>'):
+        downloads = aria2.get_downloads()
+        opt=[]
+        for download in downloads:
+            tmp=[]
+            tmp.append(str(download.name))
+            tmp.append(str(download.download_speed_string()))
+            tmp.append(str(download.total_length_string()))
+            tmp.append(str(download.connections))
+            tmp.append(str(download.progress_string()))
+            if str(download.status)=='active':
+                tmp.append('bg-success progress-bar-striped progress-bar-animated')
+            elif str(download.status)=='complete':
+                tmp.append('progress-bar-info')
+            else:
+                tmp.append('bg-danger progress-bar-striped')
+            tmp.append(str(download.eta_string()))
+            tmp.append(str(download.gid))
+            opt.append(tmp)
+        return render_template('index.html',opt=opt)
+    else:
+        return redirect(url_for('run'))
 
 @app.route('/home',methods = ['GET'])
 def list():

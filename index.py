@@ -3,7 +3,7 @@ import subprocess
 from flask import Flask, render_template, request, redirect, make_response, session,url_for,send_from_directory
 app = Flask(__name__)
 
-#how to get environment varible values -->  " os.environ['S3_KEY'] "
+#how to get environment varible values for example  " os.environ['S3_KEY'] "
 aria2 = aria2p.API(
         aria2p.Client(
             host="http://localhost",
@@ -59,7 +59,7 @@ def home():
         return render_template('index.html',opt=opt)
     else:
         return redirect(url_for('run'))
-        
+
 @app.route('/home',methods = ['GET'])
 def list():
     # list downloads

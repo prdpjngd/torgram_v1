@@ -58,8 +58,8 @@ def home():
             opt.append(tmp)
         return render_template('index.html',opt=opt)
     else:
-        return redirect(url_for('run')
-
+        return redirect(url_for('run'))
+        
 @app.route('/home',methods = ['GET'])
 def list():
     # list downloads

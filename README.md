@@ -4,7 +4,7 @@
 - Web Client for Aria2C library
 - Cloud Based Actions.
 - Add magnet link and Leech torrent file
-- Works link Seedr - A good alternative
+- Works like Seedr - A good alternative
 - DRAWBACK : File only Stay for 30min Because after 30 min of idle state app will goes under sleep, Then Restart for next session. 
 
 ## Installing - Very Easy Method

@@ -15,10 +15,5 @@
   ],
   "repository": "https://github.com/prdpjngd/torgram_v1.git",
   "success_url": "https://github.com/prdpjngd/torgram_v1",
-  "website": "https://github.com/prdpjngd/torgram_v1",
-  "buildpacks": [
-    {
-      "url": "https://github.com/amivin/aria2-heroku.git"
-    }
-  ]
+  "website": "https://github.com/prdpjngd/torgram_v1"
 }
